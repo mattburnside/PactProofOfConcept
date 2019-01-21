@@ -4,6 +4,9 @@ using PactNet.Mocks.MockHttpService;
 using PactNet.Mocks.MockHttpService.Models;
 using System.Collections.Generic;
 using Consumer.ConsoleApp;
+using PactNet.Matchers;
+using PactNet.Matchers.Regex;
+using PactNet.Matchers.Type;
 
 namespace Consumer.ConsoleApp.Tests
 {
@@ -34,7 +37,12 @@ namespace Consumer.ConsoleApp.Tests
                 })
                 .WillRespondWith(new ProviderServiceResponse
                 {
-                    Status = 200
+                    Status = 200,
+                    Body = Match.Regex("API is responding", "^API is responding$"),
+                    Headers = new Dictionary<string, object>
+                    {
+                        { "Content-Type", "text/plain; charset=utf-8" }
+                    }
                 });
 
             // act
