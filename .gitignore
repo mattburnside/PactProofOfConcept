@@ -56,3 +56,6 @@ msbuild.wrn
 **/.idea/**/modules.xml
 **/.idea/**/indexLayout.xml
 **/.idea/**/vcs.xml
+
+# Data file touched by Pact tests
+**/data/**/somedata.txt

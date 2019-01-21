@@ -25,6 +25,18 @@
       }
     },
     {
+      "description": "A heartbeat request",
+      "request": {
+        "method": "get",
+        "path": "/api/heartbeat"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+        }
+      }
+    },
+    {
       "description": "A valid GET request for Date Validation",
       "providerState": "There is data",
       "request": {

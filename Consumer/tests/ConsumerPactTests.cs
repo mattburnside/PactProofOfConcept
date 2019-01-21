@@ -20,13 +20,38 @@ namespace Consumer.ConsoleApp.Tests
         }
 
         [Fact]
+        public void HeartbeatRespondsAsExpected()
+        {
+            // arrange
+            var expectedSuccessMessage = "API is responding";
+            _mockProviderService
+                //.Given("No setup needed")
+                .UponReceiving("A heartbeat request")
+                .With(new ProviderServiceRequest
+                {
+                    Method = HttpVerb.Get,
+                    Path = "/api/heartbeat"
+                })
+                .WillRespondWith(new ProviderServiceResponse
+                {
+                    Status = 200
+                });
+
+            // act
+            var result = ConsumerApiClient.Heartbeat(_mockProviderServiceBaseUri).GetAwaiter().GetResult();
+
+            // assert
+            Assert.Equal(200, (int)result.StatusCode);
+        }
+
+        [Fact]
         public void ItHandlesInvalidDateParam()
         {
             // Arange
             var invalidRequestMessage = "validDateTime is not a date or time";
             _mockProviderService.Given("There is data")
                                 .UponReceiving("A invalid GET request for Date Validation with invalid date parameter")
-                                .With(new ProviderServiceRequest 
+                                .With(new ProviderServiceRequest
                                 {
                                     Method = HttpVerb.Get,
                                     Path = "/api/provider",
@@ -38,7 +63,7 @@ namespace Consumer.ConsoleApp.Tests
                                     {
                                         { "Content-Type", "application/json; charset=utf-8" }
                                     },
-                                    Body = new 
+                                    Body = new
                                     {
                                         message = invalidRequestMessage
                                     }
@@ -59,7 +84,7 @@ namespace Consumer.ConsoleApp.Tests
             var invalidRequestMessage = "validDateTime is required";
             _mockProviderService.Given("There is data")
                                 .UponReceiving("A invalid GET request for Date Validation with empty string date parameter")
-                                .With(new ProviderServiceRequest 
+                                .With(new ProviderServiceRequest
                                 {
                                     Method = HttpVerb.Get,
                                     Path = "/api/provider",
@@ -71,7 +96,7 @@ namespace Consumer.ConsoleApp.Tests
                                     {
                                         { "Content-Type", "application/json; charset=utf-8" }
                                     },
-                                    Body = new 
+                                    Body = new
                                     {
                                         message = invalidRequestMessage
                                     }
@@ -91,7 +116,7 @@ namespace Consumer.ConsoleApp.Tests
             // Arrange
             _mockProviderService.Given("There is no data")
                                 .UponReceiving("A valid GET request for Date Validation")
-                                .With(new ProviderServiceRequest 
+                                .With(new ProviderServiceRequest
                                 {
                                     Method = HttpVerb.Get,
                                     Path = "/api/provider",
@@ -118,7 +143,7 @@ namespace Consumer.ConsoleApp.Tests
             // Arrange
             _mockProviderService.Given("There is data")
                                 .UponReceiving("A valid GET request for Date Validation")
-                                .With(new ProviderServiceRequest 
+                                .With(new ProviderServiceRequest
                                 {
                                     Method = HttpVerb.Get,
                                     Path = "/api/provider",
@@ -130,7 +155,7 @@ namespace Consumer.ConsoleApp.Tests
                                     {
                                         { "Content-Type", "application/json; charset=utf-8" }
                                     },
-                                    Body = new 
+                                    Body = new
                                     {
                                         test = "NO",
                                         validDateTime = expectedDateParsed
