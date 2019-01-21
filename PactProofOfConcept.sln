@@ -4,15 +4,15 @@ VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Provider", "Provider", "{F3486C0A-CD11-40F5-8A02-C100C0186339}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "provider", "Provider\src\provider.csproj", "{BA1E9BD9-7D53-4C1F-8801-540A73BB7639}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Provider.WebApi", "Provider\src\Provider.WebApi.csproj", "{BA1E9BD9-7D53-4C1F-8801-540A73BB7639}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Consumer", "Consumer", "{2FEFE0E5-BBB6-45E2-8D22-1A4CDBFA2768}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "consumer", "Consumer\src\consumer.csproj", "{E2C407B0-0A53-4873-9F4F-B72076986C67}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Consumer.Console", "Consumer\src\Consumer.Console.csproj", "{E2C407B0-0A53-4873-9F4F-B72076986C67}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "tests", "Consumer\tests\tests.csproj", "{A83B5839-FF1F-41E9-9330-D61303C6495F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Consumer.Console.Tests", "Consumer\tests\Consumer.Console.Tests.csproj", "{A83B5839-FF1F-41E9-9330-D61303C6495F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "tests", "Provider\tests\tests.csproj", "{70758411-3FCE-44C7-BAD2-10F7BEB2042E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Provider.WebApi.Tests", "Provider\tests\Provider.WebApi.Tests.csproj", "{70758411-3FCE-44C7-BAD2-10F7BEB2042E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
