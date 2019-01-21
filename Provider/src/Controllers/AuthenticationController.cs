@@ -24,7 +24,7 @@ namespace Provider.WebApi.Controllers
             {
                 var responseModel = new LoginSucceededResponseModel
                 {
-                    UserName = user.UserName
+                    Username = user.UserName
                 };
                 return Ok(responseModel);
             }

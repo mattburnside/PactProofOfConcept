@@ -74,6 +74,10 @@ namespace Consumer.ConsoleApp.Tests
                 Headers = new Dictionary<string, object>
                 {
                     {"Content-Type", "application/json; charset=utf-8"}
+                },
+                Body = new
+                {
+                    username = "testuser"
                 }
             };
             _mockProviderService
@@ -88,5 +92,7 @@ namespace Consumer.ConsoleApp.Tests
             // assert
             Assert.Equal(200, (int)result.StatusCode);
         }
+
+
     }
 }
