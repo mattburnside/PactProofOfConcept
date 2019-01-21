@@ -6,7 +6,7 @@ using Microsoft.Extensions.Configuration;
 namespace Provider.WebApi.Controllers
 {
     [Route("api/[controller]")]
-    public class ProviderController : Controller
+    public class ProviderController : ControllerBase
     {
         private IConfiguration _Configuration { get; }
 

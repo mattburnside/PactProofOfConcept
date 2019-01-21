@@ -3,7 +3,7 @@
         "Development": {
             "commandName": "Project",
             "launchBrowser": true,
-            "launchUrl": "api/healthcheck",
+            "launchUrl": "api/heartbeat",
             "environmentVariables": {
                 "ASPNETCORE_ENVIRONMENT": "Development",
                 "ASPNETCORE_URLS": "http://localhost:9000/",
