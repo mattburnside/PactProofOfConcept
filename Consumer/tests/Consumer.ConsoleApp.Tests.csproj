@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\src\Consumer.Console.csproj" />
+    <ProjectReference Include="..\src\Consumer.ConsoleApp.csproj" />
   </ItemGroup>
 
 </Project>

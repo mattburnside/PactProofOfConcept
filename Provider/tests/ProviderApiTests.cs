@@ -8,7 +8,7 @@ using tests.XUnitHelpers;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace tests
+namespace Provider.WebApi.Tests
 {
     public class ProviderApiTests : IDisposable
     {

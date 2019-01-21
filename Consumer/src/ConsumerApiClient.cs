@@ -2,7 +2,7 @@ using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace Consumer
+namespace Consumer.ConsoleApp
 {
     public static class ConsumerApiClient
     {

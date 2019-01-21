@@ -2,10 +2,10 @@ using System;
 using Xunit;
 using PactNet.Mocks.MockHttpService;
 using PactNet.Mocks.MockHttpService.Models;
-using Consumer;
 using System.Collections.Generic;
+using Consumer.ConsoleApp;
 
-namespace tests
+namespace Consumer.ConsoleApp.Tests
 {
     public class ConsumerPactTests : IClassFixture<ConsumerPactClassFixture>
     {

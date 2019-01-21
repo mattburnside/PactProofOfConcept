@@ -1,9 +1,8 @@
 using System;
-using Xunit;
 using PactNet;
 using PactNet.Mocks.MockHttpService;
 
-namespace tests
+namespace Consumer.ConsoleApp.Tests
 {
     // This class is responsible for setting up a shared
     // mock server for Pact used by all the tests.

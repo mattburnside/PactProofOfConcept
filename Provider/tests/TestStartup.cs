@@ -2,10 +2,10 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using tests.Middleware;
 using Microsoft.AspNetCore.Hosting;
+using Provider.WebApi.Tests.Middleware;
 
-namespace tests
+namespace Provider.WebApi.Tests
 {
     public class TestStartup
     {

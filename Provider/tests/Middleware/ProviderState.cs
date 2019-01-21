@@ -1,4 +1,4 @@
-namespace tests.Middleware
+namespace Provider.WebApi.Tests.Middleware
 {
     public class ProviderState
     {

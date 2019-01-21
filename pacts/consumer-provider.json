@@ -26,20 +26,6 @@
     },
     {
       "description": "A valid GET request for Date Validation",
-      "providerState": "There is no data",
-      "request": {
-        "method": "get",
-        "path": "/api/provider",
-        "query": "validDateTime=04/04/2018"
-      },
-      "response": {
-        "status": 404,
-        "headers": {
-        }
-      }
-    },
-    {
-      "description": "A valid GET request for Date Validation",
       "providerState": "There is data",
       "request": {
         "method": "get",
@@ -72,6 +58,20 @@
         },
         "body": {
           "message": "validDateTime is required"
+        }
+      }
+    },
+    {
+      "description": "A valid GET request for Date Validation",
+      "providerState": "There is no data",
+      "request": {
+        "method": "get",
+        "path": "/api/provider",
+        "query": "validDateTime=04/04/2018"
+      },
+      "response": {
+        "status": 404,
+        "headers": {
         }
       }
     }
