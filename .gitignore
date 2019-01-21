@@ -54,3 +54,5 @@ msbuild.wrn
 **/.idea/**/*.iml
 **/.idea/**/contentModel.xml
 **/.idea/**/modules.xml
+**/.idea/**/indexLayout.xml
+**/.idea/**/vcs.xml
