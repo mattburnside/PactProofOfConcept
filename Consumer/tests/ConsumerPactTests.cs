@@ -93,6 +93,44 @@ namespace Consumer.ConsoleApp.Tests
             Assert.Equal(200, (int)result.StatusCode);
         }
 
+        [Fact]
+        public void InvalidLoginRespondsAsExpected()
+        {
+            var providerServiceRequest = new ProviderServiceRequest
+            {
+                Method = HttpVerb.Post,
+                Path = "/api/authentication/login",
+                Headers = new Dictionary<string, object>
+                {
+                    {"content-type", "application/json; charset=utf-8"}
+                },
+                Body = new
+                {
+                    username = "invalid",
+                    password = "invalid"
+                }
+            };
+            var providerServiceResponse = new ProviderServiceResponse
+            {
+                Status = 401,
+                Headers = new Dictionary<string, object>
+                {
+                    {"Content-Type", "application/json; charset=utf-8"}
+                },
+
+            };
+            _mockProviderService
+                //.Given("No setup needed")
+                .UponReceiving("An invalid login request")
+                .With(providerServiceRequest)
+                .WillRespondWith(providerServiceResponse);
+
+            // act
+            var result = ConsumerApiClient.LogInUser("invalid", "invalid", _mockProviderServiceBaseUri).GetAwaiter().GetResult();
+
+            // assert
+            Assert.Equal(401, (int)result.StatusCode);
+        }
 
     }
 }

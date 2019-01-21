@@ -48,6 +48,26 @@
           }
         }
       }
+    },
+    {
+      "description": "An invalid login request",
+      "request": {
+        "method": "post",
+        "path": "/api/authentication/login",
+        "headers": {
+          "content-type": "application/json; charset=utf-8"
+        },
+        "body": {
+          "username": "invalid",
+          "password": "invalid"
+        }
+      },
+      "response": {
+        "status": 401,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8"
+        }
+      }
     }
   ],
   "metadata": {
