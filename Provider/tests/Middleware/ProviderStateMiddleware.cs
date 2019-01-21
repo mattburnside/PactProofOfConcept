@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,7 +13,8 @@ namespace Provider.WebApi.Tests.Middleware
 {
     public class ProviderStateMiddleware
     {
-        private const string ConsumerName = "Consumer";
+        private const string ConsumerName = "webapi";
+        private readonly string[] ConsumerNames = {"consoleapp", "webfrontend"};
         private readonly RequestDelegate _next;
         private readonly IDictionary<string, Action> _providerStates;
 
@@ -84,7 +86,7 @@ namespace Provider.WebApi.Tests.Middleware
 
                 //A null or empty provider state key must be handled
                 if (providerState != null && !String.IsNullOrEmpty(providerState.State) &&
-                    providerState.Consumer == ConsumerName)
+                    ConsumerNames.Contains(providerState.Consumer))
                 {
                     _providerStates[providerState.State].Invoke();
                 }

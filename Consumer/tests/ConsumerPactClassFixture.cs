@@ -28,8 +28,8 @@ namespace Consumer.ConsoleApp.Tests
 
             PactBuilder = new PactBuilder(pactConfig);
 
-            PactBuilder.ServiceConsumer("Consumer")
-                       .HasPactWith("Provider");
+            PactBuilder.ServiceConsumer("consoleapp")
+                       .HasPactWith("webapi");
 
             MockProviderService = PactBuilder.MockService(MockServerPort);
         }

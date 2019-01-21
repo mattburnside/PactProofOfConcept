@@ -32,7 +32,7 @@ namespace Provider.WebApi.Tests
         }
 
         [Fact]
-        public void EnsureProviderApiHonoursPactWithConsumer()
+        public void EnsureProviderApiHonoursPactWithConsoleApp()
         {
             // Arrange
             var config = new PactVerifierConfig
@@ -53,9 +53,9 @@ namespace Provider.WebApi.Tests
             //Act / Assert
             IPactVerifier pactVerifier = new PactVerifier(config);
             pactVerifier.ProviderState($"{_pactServiceUri}/provider-states")
-                .ServiceProvider("Provider", _providerUri)
-                .HonoursPactWith("Consumer")
-                .PactUri(@"..\..\..\..\..\pacts\consumer-provider.json")
+                .ServiceProvider("webapi", _providerUri)
+                .HonoursPactWith("consoleapp")
+                .PactUri(@"..\..\..\..\..\pacts\consoleapp-webapi.json")
                 .Verify();
         }
 
