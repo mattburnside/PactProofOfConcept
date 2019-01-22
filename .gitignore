@@ -57,5 +57,7 @@ msbuild.wrn
 **/.idea/**/indexLayout.xml
 **/.idea/**/vcs.xml
 
-# Data file touched by Pact tests
-**/data/**/somedata.txt
+# WebStorm
+# Rider auto-generates some XML files specific to the IDE for react projects
+**/.idea/**/Project_Default.xml
+**/.idea/**/misc.xml
