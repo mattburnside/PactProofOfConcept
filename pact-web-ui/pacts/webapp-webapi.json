@@ -7,28 +7,6 @@
   },
   "interactions": [
     {
-      "description": "a request for projects",
-      "providerState": "i have a list of projects",
-      "request": {
-        "method": "GET",
-        "path": "/dogs",
-        "headers": {
-          "Accept": "application/json"
-        }
-      },
-      "response": {
-        "status": 200,
-        "headers": {
-          "Content-Type": "application/json"
-        },
-        "body": [
-          {
-            "dog": 1
-          }
-        ]
-      }
-    },
-    {
       "description": "a GET request for a heartbeat",
       "request": {
         "method": "GET",
@@ -40,6 +18,48 @@
           "Content-Type": "text/plain; charset=utf-8"
         },
         "body": "API is responding"
+      }
+    },
+    {
+      "description": "an invalid login request",
+      "request": {
+        "method": "POST",
+        "path": "/api/authentication/login",
+        "headers": {
+          "Accept": "application/json",
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "username": "invalid",
+          "password": "invalid"
+        }
+      },
+      "response": {
+        "status": 401,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8"
+        }
+      }
+    },
+    {
+      "description": "a valid login request",
+      "request": {
+        "method": "POST",
+        "path": "/api/authentication/login",
+        "headers": {
+          "Accept": "application/json",
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "username": "testuser",
+          "password": "testpassword"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8"
+        }
       }
     }
   ],

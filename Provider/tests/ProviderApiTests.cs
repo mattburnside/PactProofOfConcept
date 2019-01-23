@@ -32,7 +32,7 @@ namespace Provider.WebApi.Tests
         }
 
         [Fact]
-        public void EnsureProviderApiHonoursPactWithConsoleApp()
+        public void EnsureProviderApiHonorsPactWithConsoleApp()
         {
             // Arrange
             var config = new PactVerifierConfig
@@ -56,6 +56,35 @@ namespace Provider.WebApi.Tests
                 .ServiceProvider("webapi", _providerUri)
                 .HonoursPactWith("consoleapp")
                 .PactUri(@"..\..\..\..\..\pacts\consoleapp-webapi.json")
+                .Verify();
+        }
+
+        [Fact]
+        public void EnsureProviderApiHonorsPactWithWebUI()
+        {
+            // Arrange
+            var config = new PactVerifierConfig
+            {
+
+                // NOTE: We default to using a ConsoleOutput,
+                // however xUnit 2 does not capture the console output,
+                // so a custom outputter is required.
+                Outputters = new List<IOutput>
+                {
+                    new XUnitOutput(_outputHelper)
+                },
+
+                // Output verbose verification logs to the test output
+                Verbose = true
+            };
+
+            //Act / Assert
+            IPactVerifier pactVerifier = new PactVerifier(config);
+            pactVerifier.ProviderState($"{_pactServiceUri}/provider-states")
+                .ServiceProvider("webapi", _providerUri)
+                .HonoursPactWith("webapp")
+                //TODO: common location (publish to pact broker)
+                .PactUri(@"Y:\pact-web-ui\pacts\webapp-webapi.json")
                 .Verify();
         }
 

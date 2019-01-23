@@ -1,4 +1,3 @@
-import adapter from 'axios/lib/adapters/http';
 const axios = require('axios');
 
 class HeartbeatService {

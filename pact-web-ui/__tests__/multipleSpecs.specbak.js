@@ -1,6 +1,6 @@
-'use strict'
+'use strict';
 
-const getMeDogs = require('../index').getMeDogs
+const getMeDogs = require('../index').getMeDogs;
 
 describe("Dog's API", () => {
   let url = 'http://localhost'
