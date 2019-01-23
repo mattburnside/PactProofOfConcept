@@ -61,14 +61,17 @@ describe("Login API", () => {
                         'Content-Type': 'application/json'
                     },
                     body: {
-                        "username" : "testuser",
-                        "password" : "testpassword"
+                        'username' : 'testuser',
+                        'password' : 'testpassword'
                     }
                 },
                 willRespondWith: {
                     status: 200,
                     headers: {
                         'Content-Type': 'application/json; charset=utf-8'
+                    },
+                    body: {
+                        'username' : 'testuser'
                     }
                 }
             };
