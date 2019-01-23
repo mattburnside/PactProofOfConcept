@@ -1,0 +1,21 @@
+{
+  "name": "jest",
+  "version": "1.0.0",
+  "description": "Jest Pact example",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --runInBand --setupFiles ./pactSetup.js --setupTestFrameworkScriptFile ./pactTestWrapper.js --testMatch \"**/*.spec.js\"",
+    "publish:pact": "node ./publish.js"
+  },
+  "license": "MIT",
+  "jest": {
+    "testEnvironment": "node",
+    "testPathIgnorePatterns": []
+  },
+  "devDependencies": {
+    "axios": "^0.18.0",
+    "jest-cli": "^21.0.0",
+    "babel-preset-es2015": "^6.24.1",
+    "@pact-foundation/pact": "^7.2.0"
+  }
+}

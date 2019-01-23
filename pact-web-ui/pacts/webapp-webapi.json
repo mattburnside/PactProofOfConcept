@@ -1,0 +1,51 @@
+{
+  "consumer": {
+    "name": "webapp"
+  },
+  "provider": {
+    "name": "webapi"
+  },
+  "interactions": [
+    {
+      "description": "a request for projects",
+      "providerState": "i have a list of projects",
+      "request": {
+        "method": "GET",
+        "path": "/dogs",
+        "headers": {
+          "Accept": "application/json"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": [
+          {
+            "dog": 1
+          }
+        ]
+      }
+    },
+    {
+      "description": "a GET request for a heartbeat",
+      "request": {
+        "method": "GET",
+        "path": "/api/heartbeat"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "text/plain; charset=utf-8"
+        },
+        "body": "API is responding"
+      }
+    }
+  ],
+  "metadata": {
+    "pactSpecification": {
+      "version": "2.0.0"
+    }
+  }
+}

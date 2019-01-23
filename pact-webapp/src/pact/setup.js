@@ -1,7 +1,7 @@
 const path = require('path');
 const Pact = require('@pact-foundation/pact').Pact;
 
-global.port = 3001;
+global.port = 8991;
 global.provider = new Pact({
     cors: true,
     port: global.port,
@@ -11,6 +11,5 @@ global.provider = new Pact({
     spec: 2,
     pactfileWriteMode: 'overwrite',
     consumer: 'webapp',
-    provider: 'webapi',
-    host: '127.0.0.1'
+    provider: 'webapi'
 });
