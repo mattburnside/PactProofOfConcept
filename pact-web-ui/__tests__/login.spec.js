@@ -11,44 +11,6 @@ describe("Login API", () => {
         return provider.verify()
     });
 
-    // describe('functions as expected for invalid login', () => {
-    //     beforeEach(() => {
-    //         const interaction = {
-    //             uponReceiving: 'an invalid login request',
-    //             withRequest: {
-    //                 method: 'POST',
-    //                 path: path,
-    //                 headers: {
-    //                     'Accept': 'application/json',
-    //                     'Content-Type': 'application/json'
-    //                 },
-    //                 body: {
-    //                     "username" : "invalid",
-    //                     "password" : "invalid"
-    //                 }
-    //             },
-    //             willRespondWith: {
-    //                 status: 401,
-    //                 headers: {
-    //                     'Content-Type': 'application/json; charset=utf-8'
-    //                 }
-    //             }
-    //         };
-    //         return provider.addInteraction(interaction)
-    //     });
-    //
-    //     // add expectations
-    //     it('invalid login returns expected response', done => {
-    //         return loginService.logInUser('invalid', 'invalid')
-    //             .then(response => {
-    //                 expect(response.headers['content-type']).toEqual('application/json; charset=utf-8')
-    //                 //expect(response.data).toEqual(EXPECTED_BODY)
-    //                 expect(response.status).toEqual(401)
-    //                 done()
-    //             })
-    //     })
-    // })
-
     describe('functions as expected for valid login', () => {
         beforeEach(() => {
             const interaction = {
@@ -89,4 +51,44 @@ describe("Login API", () => {
                 })
         })
     })
+
+    describe('functions as expected for invalid login', () => {
+        beforeEach(() => {
+            const interaction = {
+                uponReceiving: 'an invalid login request',
+                withRequest: {
+                    method: 'POST',
+                    path: path,
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: {
+                        "username" : "invalid",
+                        "password" : "invalid"
+                    }
+                },
+                willRespondWith: {
+                    status: 401,
+                    headers: {
+                        'Content-Type': 'application/json; charset=utf-8'
+                    }
+                }
+            };
+            return provider.addInteraction(interaction)
+        });
+
+        // add expectations
+        it('invalid login returns expected response', done => {
+            return loginService.logInUser('invalid', 'invalid')
+                .then(response => {
+                    expect(response.headers['content-type']).toEqual('application/json; charset=utf-8')
+                    //expect(response.data).toEqual(EXPECTED_BODY)
+                    expect(response.status).toEqual(401)
+                    done()
+                })
+        })
+    })
+
+
 })
