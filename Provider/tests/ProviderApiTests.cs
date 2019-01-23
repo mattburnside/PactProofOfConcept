@@ -60,7 +60,7 @@ namespace Provider.WebApi.Tests
         }
 
         [Fact]
-        public void EnsureProviderApiHonorsPactWithWebUI()
+        public void EnsureProviderApiHonorsPactWithWebUi()
         {
             // Arrange
             var config = new PactVerifierConfig
@@ -84,7 +84,7 @@ namespace Provider.WebApi.Tests
                 .ServiceProvider("webapi", _providerUri)
                 .HonoursPactWith("webapp")
                 //TODO: common location (publish to pact broker)
-                .PactUri(@"Y:\pact-web-ui\pacts\webapp-webapi.json")
+                .PactUri(@"..\..\..\..\..\pacts\webapp-webapi.json")
                 .Verify();
         }
 
